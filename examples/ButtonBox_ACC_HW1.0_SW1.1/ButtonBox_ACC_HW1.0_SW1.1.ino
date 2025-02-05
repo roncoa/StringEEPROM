@@ -10,7 +10,7 @@
 #include "StringEEPROM.h"
 
 // Debug configuration
-#define DEBUG false
+#define DEBUG true
 
 // Hardware configuration
 // Matrix Configuration
@@ -116,14 +116,17 @@ void onEncoderChange(int profile, int encoder, int direction) {
 }
 
 void setup() {
+  if (DEBUG) {
+    Serial.begin(115200);
+    while (!Serial) delay(10);
+    Serial.println(F("SimRacing ButtonBox ACC HW1.0 Arduino pro micro 32U4 MCU"));
+  }
+
+  // Initialize StringEEPROM
   eeprom.setDebug(DEBUG);
   eeprom.setMaxStrings(5);
   eeprom.begin();
-  if (DEBUG) {
-    Serial.begin(115200);
-    Serial.println(F("SimRacing ButtonBox ACC HW1.0 Arduino pro micro 32U4 MCU"));
-
-  }
+  
   // Initialize KeySequence
   keys.setDebug(DEBUG);
   keys.begin();
