@@ -6,7 +6,7 @@ A library for efficiently storing and managing multiple strings in EEPROM memory
 
 - Store multiple strings in EEPROM with dynamic allocation
 - Command interface through Serial for interactive use
-- Debug mode for development
+- Configurable debug output
 - Configurable maximum number of strings
 - Memory efficient implementation using flash memory for strings
 - Compatible with both Arduino and ESP32 platforms
@@ -95,6 +95,26 @@ void init()
 ```
 Initialize EEPROM by writing terminator at start.
 
+### Debug Methods
+
+```cpp
+void debugPrint(const __FlashStringHelper* message)
+void debugPrintln(const __FlashStringHelper* message)
+```
+Print debug message from flash memory, with or without newline.
+
+```cpp
+void debugPrintValue(const __FlashStringHelper* message, int value)
+void debugPrintlnValue(const __FlashStringHelper* message, int value)
+```
+Print debug message with integer value, with or without newline.
+
+```cpp
+void debugPrintChar(const char* message)
+void debugPrintlnChar(const char* message)
+```
+Print debug message from RAM, with or without newline.
+
 ### Serial Interface Methods
 
 ```cpp
@@ -105,7 +125,7 @@ Process Serial commands. Should be called in loop().
 ```cpp
 void showAllStrings()
 ```
-Display all stored strings with their positions and lengths.
+Display all stored strings with their positions.
 
 ```cpp
 void printHelp()
@@ -117,8 +137,8 @@ Display available Serial commands.
 The library provides an interactive interface through Serial with the following commands:
 
 - `N=string` - Write "string" at position N (e.g., "1=Hello")
-- `?` - Show all stored strings
-- `#` - Show number of stored strings
+- `?` - Show all strings
+- `#` - Show number of strings
 - `!` - Initialize EEPROM (requires confirmation)
 - `h` - Show help message
 
@@ -144,32 +164,6 @@ void setup() {
 void loop() {
   // Handle Serial commands
   eeprom.handleSerial();
-  
-  // Or use programmatically
-  char buffer[64];
-  if (eeprom.readString(1, buffer, sizeof(buffer)) >= 0) {
-    // Use the string...
-  }
-}
-```
-
-Writing and reading strings programmatically:
-```cpp
-StringEEPROM eeprom;
-
-void setup() {
-  eeprom.begin();
-  
-  // Write a string at position 1
-  eeprom.writeString(1, "Hello World");
-  
-  // Read it back
-  char buffer[64];
-  int len = eeprom.readString(1, buffer, sizeof(buffer));
-  if (len >= 0) {
-    Serial.print("Read: ");
-    Serial.println(buffer);
-  }
 }
 ```
 
@@ -184,7 +178,6 @@ void setup() {
 
 - Tested on Arduino (AVR) platforms
 - Tested on ESP32 platforms
-- Should work on any platform with EEPROM support
 
 ## Limitations
 
