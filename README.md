@@ -1,5 +1,12 @@
 # StringEEPROM Library
 
+[![GitHub release](https://img.shields.io/github/release/roncoa/StringEEPROM.svg)](https://github.com/roncoa/StringEEPROM/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/roncoa/StringEEPROM.svg?style=social&label=Star)](https://github.com/roncoa/StringEEPROM/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/roncoa/StringEEPROM.svg?style=social&label=Fork)](https://github.com/roncoa/StringEEPROM/network)
+
+If you like **StringEEPROM Library**... buy me a beer  [![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://paypal.me/roncoa)
+
 A library for efficiently storing and managing multiple strings in EEPROM memory for Arduino and ESP32 platforms.
 
 ## Features
@@ -182,11 +189,6 @@ void loop() {
 - Maximum string length is 254 bytes due to length byte limitations
 - EEPROM space is used efficiently with dynamic allocation
 
-## Compatibility
-
-- Tested on Arduino (AVR) platforms
-- Tested on ESP32 platforms
-
 ## Limitations
 
 - Maximum string length is 254 bytes
@@ -194,6 +196,34 @@ void loop() {
 - String content cannot contain byte value 255 (used as terminator)
 - ESP32 virtual EEPROM requires commit() after changes
 
-## License
+#### Platform Support
+- AVR architecture
+- ESP32 virtual EEPROM
+- Generic Arduino
+- Memory abstraction
+- Platform-specific optimizations
 
-This library is released under the MIT License.
+## Contributing
+1. Fork repository
+2. Create feature branch
+3. Submit pull request
+
+## Support
+- GitHub Issues: Technical issues, bugs
+- GitHub Discussions: Questions, ideas
+- Email: your.email@example.com
+
+## License
+MIT License - See [LICENSE](LICENSE) file
+
+## Version History
+
+### 1.0.0
+- Initial release
+- Basic string storage
+- Serial interface
+- Debug system
+- ESP32 support
+
+## Author
+roncoa@gmail.com
