@@ -13,9 +13,17 @@ A library for efficiently storing and managing multiple strings in EEPROM memory
 
 ## Installation
 
-1. Download the library archive
-2. Extract it to your Arduino libraries folder
-3. Restart the Arduino IDE
+### Using Arduino Library Manager (Recommended)
+1. Open Arduino IDE
+2. Go to Tools > Manage Libraries...
+3. Search for "StringEEPROM"
+4. Click Install
+
+### Manual Installation
+1. Download latest release as ZIP
+2. In Arduino IDE: Sketch > Include Library > Add .ZIP Library
+3. Select downloaded ZIP file
+4. Restart Arduino IDE
 
 ## Storage Format
 
