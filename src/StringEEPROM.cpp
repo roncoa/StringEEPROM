@@ -1,3 +1,10 @@
+/**************************
+   StringEEPROM.cpp
+   v 1.0.0
+   by roncoa@gmail.com
+   06/02/2025
+ **************************/
+
 #include "StringEEPROM.h"
 #include <EEPROM.h>
 
