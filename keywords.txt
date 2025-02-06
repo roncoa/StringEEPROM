@@ -1,0 +1,22 @@
+# Syntax Coloring Map for StringEEPROM Library
+# Use tabs, not spaces, between name and KEYWORD type
+
+# Datatypes (KEYWORD1)
+StringEEPROM	KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+setDebug	KEYWORD2
+isDebugEnabled	KEYWORD2
+setMaxStrings	KEYWORD2
+getMaxStrings	KEYWORD2
+writeString	KEYWORD2
+readString	KEYWORD2
+check	KEYWORD2
+init	KEYWORD2
+begin	KEYWORD2
+handleSerial	KEYWORD2
+showAllStrings	KEYWORD2
+printHelp	KEYWORD2
+
+# Constants (LITERAL1)
+STRING_EEPROM_MAX_INPUT	LITERAL1
