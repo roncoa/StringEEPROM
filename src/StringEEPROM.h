@@ -1,3 +1,10 @@
+/**************************
+   StringEEPROM.h
+   v 1.0.0
+   by roncoa@gmail.com
+   06/02/2025
+ **************************/
+
 #ifndef STRING_EEPROM_H
 #define STRING_EEPROM_H
 
