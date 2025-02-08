@@ -1,13 +1,13 @@
 /***********************************
   ButtonBox_ACC_HW1.0_SW1.1
-  HW1.0 Arduino pro micro 32U4 MCU
+  Arduino pro micro 32U4 MCU
   Core Arduino AVR Boards 1.8.6
  ***********************************/
 
 #include <KeySequence.h>              // libreria KeySequence alla versione 1.3.0
 #include <SimRacingController.h>      // libreria SimRacingController alla versione 2.1.0
+#include <StringEEPROM.h>             // libreria StringEEPROM alla versione 1.0.0
 #include "Sequenze.h"                 // macro tastiera per ACC
-#include "StringEEPROM.h"
 
 // Debug configuration
 #define DEBUG true
@@ -71,17 +71,17 @@ void onMatrixChange(int profile, int row, int col, bool state) {
           case 1: keys.sendSequence(ACC_DecreaseTCC); break;
           case 2: keys.sendSequence(ACC_IncreaseTCC); break;
           case 3:
-            len = eeprom.readString(3, buffer, sizeof(buffer));
+            len = eeprom.readString(1, buffer, sizeof(buffer));
             if (len < 0) {
-              strncpy(buffer, AUX3, sizeof(buffer));
+              strncpy(buffer, AUX1, sizeof(buffer));
               buffer[sizeof(buffer) - 1] = '\0';
             }
             keys.sendSequence(buffer);
             break;
           case 4:
-            len = eeprom.readString(4, buffer, sizeof(buffer));
+            len = eeprom.readString(2, buffer, sizeof(buffer));
             if (len < 0) {
-              strncpy(buffer, AUX4, sizeof(buffer));
+              strncpy(buffer, AUX2, sizeof(buffer));
               buffer[sizeof(buffer) - 1] = '\0';
             }
             keys.sendSequence(buffer);
@@ -119,14 +119,26 @@ void setup() {
   if (DEBUG) {
     Serial.begin(115200);
     while (!Serial) delay(10);
-    Serial.println(F("SimRacing ButtonBox ACC HW1.0 Arduino pro micro 32U4 MCU"));
+    Serial.println(F("ButtonBox_ACC_HW1.0_SW1.1 Arduino pro micro 32U4 MCU"));
   }
 
   // Initialize StringEEPROM
-  eeprom.setDebug(DEBUG);
-  eeprom.setMaxStrings(5);
+  eeprom.setDebug(true);
+  eeprom.setMaxStrings(2);
   eeprom.begin();
-  
+
+
+  if (eeprom.check() != eeprom.getMaxStrings())
+  {
+    if (DEBUG) {
+      Serial.println("Initializing strings (AUX1, AUX2)");
+    }
+    eeprom.writeString(1, AUX1);
+    eeprom.writeString(2, AUX2);
+  }
+
+
+
   // Initialize KeySequence
   keys.setDebug(DEBUG);
   keys.begin();
