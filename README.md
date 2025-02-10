@@ -218,6 +218,9 @@ MIT License - See [LICENSE](LICENSE) file
 
 ## Version History
 
+### 1.0.1
+- Bug fix
+
 ### 1.0.0
 - Initial release
 - Basic string storage
