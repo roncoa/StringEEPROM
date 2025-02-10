@@ -42,9 +42,7 @@ void StringEEPROM::debugPrintlnChar(const char* message) {
 
 void StringEEPROM::begin(uint32_t baudRate) {
   Serial.begin(baudRate);
-  if (debugEnabled) {
-    while (!Serial) delay(10);
-  }
+  delay(100);
   int numStrings = check();
   if (numStrings >= 0) {
     debugPrintlnValue(F("Found strings: "), numStrings);
