@@ -1,8 +1,8 @@
 /**************************
    StringEEPROM.cpp
-   v 1.0.2
+   v 1.0.3
    by roncoa@gmail.com
-   06/02/2025
+   11/02/2025
  **************************/
 
 #include "StringEEPROM.h"
