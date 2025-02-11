@@ -218,7 +218,7 @@ MIT License - See [LICENSE](LICENSE) file
 
 ## Version History
 
-### 1.0.3
+### 1.0.4
 - Bug fix
 
 ### 1.0.0
