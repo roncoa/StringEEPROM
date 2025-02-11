@@ -6,7 +6,7 @@
 
 #include <SimRacingController.h>      // libreria SimRacingController alla versione 2.1.0
 #include <KeySequence.h>              // libreria KeySequence alla versione 1.3.0
-#include <StringEEPROM.h>             // libreria StringEEPROM alla versione 1.0.2
+#include <StringEEPROM.h>             // libreria StringEEPROM alla versione 1.0.3
 #include "Sequenze.h"                 // macro tastiera per ACC
 
 // Debug configuration
